@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>vanilla javascript app</title>
+</head>
+<body>
+    <main>
+        <h1>Vanilla JavaScipt App</h1>
+        <div id="people">
+
+
+        </div>
+        <a href="/.auth/login/github">Log in</a>
+    </main>
+</body>
+<script>
+
+    var data = {};
+
+    async function list() {
+        const endpoint = '/data-api/rest/Person';
+        const response = await fetch(endpoint);
+        const data = await response.json();
+        console.table(data.value);
+
+        people = data.value;
+        console.log(people);
+
+        document.getElementById("people").innerText = JSON.stringify(people);
+}
+
+list();
+
+</script>
+</html>
